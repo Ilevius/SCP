@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "SCP", "SCP.vfproj", "{102C40C4-C651-44F5-935C-EE5666CEB209}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{102C40C4-C651-44F5-935C-EE5666CEB209}.Debug|x86.ActiveCfg = Debug|Win32
+		{102C40C4-C651-44F5-935C-EE5666CEB209}.Debug|x86.Build.0 = Debug|Win32
+		{102C40C4-C651-44F5-935C-EE5666CEB209}.Release|x86.ActiveCfg = Release|Win32
+		{102C40C4-C651-44F5-935C-EE5666CEB209}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8A2EFBC-80D1-4434-808A-C4ACF750B65E}
+	EndGlobalSection
+EndGlobal
