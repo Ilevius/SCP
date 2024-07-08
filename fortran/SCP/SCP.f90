@@ -13,13 +13,12 @@
 !****************************************************************************
 
     program SCP
-
+    use globals
+    use ThreeLayerCase
     implicit none
 
-    ! Variables
-
-    ! Body of SCP
-    print *, 'Hello World'
+    call init_globals
+    call simpleDcurves
 
     end program SCP
 

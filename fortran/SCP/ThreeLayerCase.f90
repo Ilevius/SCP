@@ -73,8 +73,36 @@ CONTAINS
         A = makeA(alfa, sigma, lambda, mu, z)
         call STAR5(A,makeG,C,R,12,12,2,2)
     END FUNCTION makeG 
+  
+    
+    real*8 function haminDelta(alfa)
+    implicit none
+    real*8 alfa
+    complex*16 G(12,2)
+    complex*16 alfa_c
+        alfa_c = cmplx(alfa)
+        G = makeG(alfa_c, w)
+        G = abs(G)
+        haminDelta = 1d0/sum(G) 
+    end
     
     
+    
+    SUBROUTINE simpleDcurves
+    IMPLICIT NONE
+    real*8 dz(10), smin,smax,hs,eps
+    integer i, j, Ndz
+        open(1, file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\data\simpleDcurves.txt", FORM='FORMATTED');
+        smin = 0d0; smax = 2d0; hs = 1d-3; eps = 1d-6;
+        do i = 1, dotsNum
+            f = fmin + fstep*(i-1); w = f*2d0*pi;
+            call Hamin(haminDelta,smin,smax,hs,eps,10,dz,Ndz)
+            do j = 1, Ndz
+                write(1, '(2E15.6E3)') f, dz(j)
+            enddo    
+        enddo
+        close(1)
+    END SUBROUTINE simpleDcurves
 
     
 
