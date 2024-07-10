@@ -30,9 +30,11 @@
 		<Filter Name="aux code">
 		<File RelativePath=".\Hamin.f90"/>
 		<File RelativePath=".\Star5m.f90"/></Filter>
-		<File RelativePath=".\ThreeLayerCase.f90"/>
 		<File RelativePath=".\basic.f90"/>
 		<File RelativePath=".\globals.f90"/>
-		<File RelativePath=".\SCP.f90"/></Filter>
-		<File RelativePath=".\ReadMe.txt"/></Files>
+		<File RelativePath=".\SCP.f90"/>
+		<File RelativePath=".\tests.f90"/>
+		<File RelativePath=".\ThreeLayerCase.f90"/></Filter>
+		<File RelativePath=".\ReadMe.txt"/>
+		<File RelativePath=".\settings.txt"/></Files>
 	<Globals/></VisualStudioProject>

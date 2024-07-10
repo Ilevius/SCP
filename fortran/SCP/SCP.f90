@@ -15,10 +15,12 @@
     program SCP
     use globals
     use ThreeLayerCase
+    use tests
     implicit none
 
     call init_globals
     call simpleDcurves
+    call bottom_conditions
 
     end program SCP
 
