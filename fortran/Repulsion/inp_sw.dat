@@ -1,0 +1,135 @@
+&inp_keys
+ Ms    = 2  ! number of layers  
+ ibot  = 1  ! 0 -  half-space, 1 - free laminate, 2 - clamped laminate 
+ Mode  = 3  ! < 0 - tests, 0 - RealPoles, 1 - ComplexPoles,
+            !   2 - ComplRes, 3 - Spectrum K(f,sl) 
+            !   4 - Response	
+            
+            !   -2 - TestSpline	
+
+			! Mode = 1 - complex poles 
+			!   if Nn1 < 0 - search, if Nn1>0 - pole sorting; 
+
+ iso   = 1  ! 0 - isotropic, else - anisotropic case 
+ 
+/
+
+&inp_iso    ! isotropic material constants
+
+! 2FL_Steel/Wax -- dimensionless  
+!   V_p(1) = 1.870  V_s(1) = 1.     tet(1)=0.0001  rho(1) = 1.    hs(1) = 1.  !steel 
+!   V_p(2) = 0.452  V_s(2) = 0.0968 tet(2)=0.001   rho(2) = 0.115 hs(2) = 0.1 ! wax
+
+! 2FL_Steel/Wax-1  [v] = 1000m/s;  [rho] = 1000*kg/m^3;  [h] = 1mm; 
+!            [f] = 1MHz; [E] = 10^9Pa = 1GPa
+  V_p(1) = 5.8  V_s(1) = 3.1   rho(1) = 7.85  hs(1) = 10. ! steel 
+  V_p(2) = 1.4  V_s(2) = 0.3   rho(2) =  0.9  hs(2) =  1. ! wax
+
+! Bones !
+!   [v] = 1000m/s;  [rho] = 1000*kg/m^3;  [h] = 1m; 
+!            [f] = 1kHz; [E] = 10^9Pa = 1GPa
+!  V_p(1) = 1.55   V_s(1) = 0.369   rho(1) = 1.06  hs(1) = 3.   ! soft tissue 
+!  V_p(2) = 2.7    V_s(2) = 1.226   rho(2) = 1.19  hs(2) = 3.   ! bone 2
+!  V_p(3) = 2.086  V_s(3) = 0.886   rho(3) = 1.14  hs(3) = 1.25 ! bone 3
+!  V_p(4) = 1.867  V_s(4) = 0.640   rho(4) = 1.09  hs(4) = 0.75 ! bone 4 
+!  V_p(5) = 1.55   V_s(5) = 0.369   rho(5) = 1.06  hs(5) = 10.  ! marrow 
+
+!  V_p(4) = 1.55   V_s(4) = 0.369   rho(4) = 1.06  hs(4) = 10. ! marrow 
+!  V_p(4) = 2.7   V_s(4) = 1.226   rho(4) = 1.19  hs(4) = 3. ! bone 1
+!  V_p(5) = 1.55  V_s(5) = 0.369   rho(5) = 1.06  hs(5) = 3. ! soft tissue 
+
+  tet(1) = 0. tet(2) = 0.  ! tet(3) = 0.  tet(4) = 0.
+
+!  tet(1) = 0.01 tet(2) = 0.0001 ! tet(3) = 0.
+! tet(4) = 0. tet(5) = 0. ! tet(6) = 0.
+
+!  V_p(3) = 2.    V_s(3) = 1.000   rho(3) = 1.12  hs(3) = 1.5 ! bone 2 
+
+/
+       
+&inp_aniso    ! anisotropic material constants
+
+! Elastic modulus C_ij [GPa], rho [10^3kg/m^3], hs [micro m = 10^(-6) m] 
+!   or dimensionless if C_44 = 1, h = 1, rho = 1 in one of the sublayers)
+
+! if isym(m) =! 0  - isotropic, input: C_11, C_44 (C_12=C_11-2*C_44)
+              ! 1 - cubic,     input: C_11, C_12, C_44 
+              ! 2 - transversal isotropic to z-axis, 5 constants:
+              !     C_11, C_33,  C_13, C_44, C_66 then
+              !     C_22=C_11,  C_23=C_13,  C_55=C_44, C_12=C_11-2C_66
+              ! 3 - transversal isotropic to x-axis, 5 constants:
+              !     C_11, C_22, C_12, C_23, C_55 then
+              !     C_33=C_22,  C_13=C_12, C_66=C_55, C_44=(C_22-C_23)/2
+              !
+              ! any other isym: general ortotropic, all 9 constants 
+
+! For Bones
+! C_ij[GPa], rho[10^3kg/m^3], hs[mm = 10^(-3) m]
+! => [v] = [sqrt(mu/rho)] = [sqrt(10^9/10^3)] = 10^3 [m/s]
+! => [f] = [v/h] = 10^6 [Hz] = 1 [MHz]   
+
+! m=1 мякоть
+C_6(1,1,1)=   2.54665  C_6(2,2,1)=   2.54665  C_6(3,3,1)=   2.54665
+C_6(1,2,1)=   2.25799  C_6(1,3,1)=   2.25799  C_6(2,3,1)=   2.25799
+C_6(4,4,1)=   0.14433  C_6(5,5,1)=   0.14433  C_6(6,6,1)=   0.14433
+
+tet(1) = 0.  rho(1)=   1.06000  hs(1)=   3.00000  isym(1)= 0
+
+! m=2 надкостница
+C_6(1,1,2)=   16.04       C_6(2,2,2)=   13.17      C_6(3,3,2)=   13.17      
+C_6(1,2,2)=    6.60        C_6(1,3,2)=    6.60       C_6(2,3,2)=     5.93
+C_6(4,4,2)=    3.62        C_6(5,5,2)=    3.75       C_6(6,6,2)=    3.75
+
+tet(2) = 0.  rho(2)=   1.85     hs(2)=   3.00000  isym(2)= 3
+
+/
+
+&inp_work
+
+!    namelist/inp_work/gmn,eps,f1,f2,hf, &
+!                      key_real,s1,s2,hpol, &   ! for real poles
+!                      compldzs,Nn1,Nn2,Max,ip,cs0,zh
+   
+  gmn = 0.  ! 0.25         ! gm/pi - normalized angle 'gamma' in the alpha plane  
+  eps =  0.000001  !  eps =  0.000001 
+  
+  f1 = 0.2   f2 = 0.2   hf = 0.01     ! f range [MHz]
+
+! f1 = 0.002   f2 = 0.65   hf = 0.002  ! f range [dimensionless]  
+
+!-----------------------------------
+! Mode = 0 - real poles
+ 
+  s1 = 0.    s2 = 1.5       hpol = 0.0001 
+ 
+                ! >= 0 -- find roots by Hamin
+ key_real = 0   ! 0 - only rpoles, 1 - rpoles -> fslown_t 
+                ! 2 - as 1 + merge with fslown -> fslown  ! пока нет
+                ! -1 - rpoles -> fslown_t 
+                ! -2 - residues: fslown_t --> fslown_t+res
+
+! --------------------------------
+! Mode = 1 - complex poles 
+!   if Nn1 < 0 - search, if Nn1>0 - pole sorting; 
+   
+  Nn1 = -1  Nn2 = 10 !  Nn1 =< n =< Nn2 sorting those branches,
+                    !                         n - branch number  
+  zh  = (0.002,0.0000001) ! initial step
+                      
+  Max = 200  ip =-1  ! Crootw25 parameters 
+
+  cs0 = (2.8478, 0.0)  ! initial s-value for complex root finding                   
+
+/
+
+&inp_Kij
+
+! Mode = 3, Spectrum K(f,sl)
+  
+  Nf  = 300  ff1 = 0. ff2 = 0.2
+  Nsl = 300  sl1 = 0. sl2 = 1.6
+  
+  aK_max = 1000.  !  aK_max = 20.
+  
+!  Kij = 3 ! Kij = 1,2,3 or 4 ==> K11, K31, K13 or K33
+/ 

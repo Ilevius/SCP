@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="11.0" ProjectIdGuid="{D53370B5-69F7-453B-B674-660E8535EC08}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" RuntimeLibrary="rtMultiThreadedDebug" Interfaces="true"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath=".\DataFigs\cpoles.dat"/>
+		<File RelativePath=".\DataFigs\fcs.dat"/>
+		<File RelativePath=".\DataFigs\fcs_res.dat"/>
+		<File RelativePath=".\DataFigs\fs.dat"/>
+		<File RelativePath=".\DataFigs\fslown_t.dat"/>
+		<File RelativePath=".\DataFigs\inp_Kij.dat"/>
+		<File RelativePath=".\inp_rp.dat"/>
+		<File RelativePath=".\out_rp.dat"/>
+		<File RelativePath=".\DataFigs\response.dat"/>
+		<File RelativePath=".\DataFigs\rpoles.dat"/>
+		<File RelativePath=".\DataFigs\temp.dat"/></Filter>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<Filter Name="MultiK_An">
+		<Filter Name="LAPACK eigenvectors">
+		<Filter Name="Support">
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dcabs1.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dlabad.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dladiv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dlamch.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dlapy2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dlapy3.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dscal.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dzasum.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\dznrm2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\idamax.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ieeeck.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ilaenv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\iparmq.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\izamax.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\lsame.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\xerbla.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zaxpy.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zcopy.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zdotc.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zdotu.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zdscal.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zgehd2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zgemm.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zgemv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zgerc.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zgeru.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zgetf2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlacgv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlacpy.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zladiv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlahqr.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlahr2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaqr0.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaqr1.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaqr2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaqr3.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaqr4.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaqr5.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlarf.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlarfb.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlarfg.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlarft.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlartg.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaset.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlaswp.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zlatrs.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zrot.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zscal.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zswap.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrexc.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrmm.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrmv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrsm.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrsv.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrti2.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\ztrtri.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zung2r.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zungqr.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Support\zungr2.f"/></Filter>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\Ev_evaluate.f90"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zgebak.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zgebal.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zgehrd.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zgetrf.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zgetri.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zhseqr.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\ztrevc.f"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\LAPACK eigenvectors\zunghr.f"/></Filter>
+		<File RelativePath=".\FortranFiles\MultiK_An\Blocks.f90"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\CutSelect.f90"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\Eigen.f90"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\Mult_Glob_SW.f90"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\MultiK_An.f90"/>
+		<File RelativePath=".\FortranFiles\MultiK_An\TransMatr.f90"/></Filter>
+		<Filter Name="Supply">
+		<File RelativePath=".\FortranFiles\Supply\Cmplag1.for"/>
+		<File RelativePath=".\FortranFiles\Supply\Cmpmy1.for"/>
+		<File RelativePath=".\FortranFiles\Supply\crootw25.for"/>
+		<File RelativePath=".\FortranFiles\Supply\Cubic_splines.f90"/>
+		<File RelativePath=".\FortranFiles\Supply\Cvalp.for"/>
+		<File RelativePath=".\FortranFiles\Supply\Dinn5m.f90"/>
+		<File RelativePath=".\FortranFiles\Supply\Halfc5.f90"/>
+		<File RelativePath=".\FortranFiles\Supply\Hamin.f90"/>
+		<File RelativePath=".\FortranFiles\Supply\Star5m.f90"/>
+		<File RelativePath=".\FortranFiles\Supply\TestSpline.f90"/></Filter>
+		<File RelativePath=".\FortranFiles\Cds.f90"/>
+		<File RelativePath=".\FortranFiles\Cds_alf.f90"/>
+		<File RelativePath=".\FortranFiles\ComplPoles.f90"/>
+		<File RelativePath=".\FortranFiles\ComplRes.f90"/>
+		<File RelativePath=".\FortranFiles\Green_K.f90"/>
+		<File RelativePath=".\FortranFiles\Green_T.f90"/>
+		<File RelativePath=".\FortranFiles\Init_RP.f90"/>
+		<File RelativePath=".\FortranFiles\KQ2.f90"/>
+		<File RelativePath=".\FortranFiles\MaterConsts1.f90"/>
+		<File RelativePath=".\FortranFiles\MaterConsts2.f90"/>
+		<File RelativePath=".\FortranFiles\PropRest2_Glob.f90"/>
+		<File RelativePath=".\FortranFiles\RDabs.f90"/>
+		<File RelativePath=".\FortranFiles\RDabs_alf.f90"/>
+		<File RelativePath=".\FortranFiles\RDfabs.f90"/>
+		<File RelativePath=".\FortranFiles\Rds.f90"/>
+		<File RelativePath=".\FortranFiles\RealPoles_RP.f90"/>
+		<File RelativePath=".\FortranFiles\Repulsion.f90"/>
+		<File RelativePath=".\FortranFiles\Response.f90"/>
+		<File RelativePath=".\FortranFiles\SortPoles.f90"/>
+		<File RelativePath=".\FortranFiles\Spectrum_K_f_sl.f90"/>
+		<File RelativePath=".\FortranFiles\test_print_K.f90"/></Filter></Files>
+	<Globals/></VisualStudioProject>

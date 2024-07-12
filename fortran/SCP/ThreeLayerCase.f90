@@ -115,6 +115,19 @@ CONTAINS
     end
     
     
+    real*8 function arcHaminDelta(angle)  ! »щет значение на дуге  с центром (fOld, alfaOld), радиуса SCP_step, под углом angle, нужны глобальные fOld, alfaOld, SCP_step
+    implicit none
+    real*8 angle, alfa
+    complex*16 alfa_c, G(12,2)
+        w = 2d0*pi*(cos(angle)*SCPstep + fOld)
+        alfa = sin(angle)*SCPstep + alfaOld    
+        alfa_c = alfa*(1d0,0d0)     
+        G = makeG(alfa_c, w)
+        G = abs(G)
+        arcHaminDelta = 1d0/sum(G) 
+    end
+    
+    
     
     SUBROUTINE simpleDcurves
     IMPLICIT NONE
@@ -132,6 +145,44 @@ CONTAINS
         close(1)
     END SUBROUTINE simpleDcurves
 
+    
+    subroutine SCP1(f0, alfa0, step, fmax, file)
+    implicit none
+    integer  Ndz, choice, iterno, j, file
+    real*8 f0, alfa0, fNew, alfaNew, step, fmax, dz(10), psi
+    !    !                                                                    первые шаги, подготовка к автоматике
+        SCPstep = step; fOld = f0; alfaOld = alfa0;
+        call Hamin(arcHaminDelta, 0d0, pi, 1d-3, 1d-7, 10, dz, Ndz)
+        alfaNew = sin(dz(1))*SCPstep + alfaOld; fNew = cos(dz(1))*SCPstep + fOld;
+        psi = atan( (fNew-fOld)/(alfaNew-alfaOld) );      
+        w = 2d0*pi*fNew       
+        write(file, '(4E15.6E3)') fNew, alfaNew
+        fNew = fOld; alfaNew = alfaOld;
+    !                                                                         автоматический режим
+        do 
+            iterno= 0;
+            do
+                call Hamin(arcHaminDelta, pi/3d0-psi, 2d0*pi/3d0-psi, 0.5d-3, 1d-8, 4, dz, Ndz)
+                if (Ndz>1) then
+                    !print*, Ndz
+                    choice = 1; 
+                    do j = 2, Ndz
+                        if ( abs(dz(j)-(pi/2d0 - psi)) < abs(dz(j-1)-(pi/2d0 - psi)) ) choice = j
+                    enddo
+                    exit;
+                else
+                    if (SCPstep < step) SCPstep = SCPstep*2d0
+                     choice = 1; exit;
+                endif    
+                iterno = iterno + 1; if (iterno > 5) exit;
+            enddo
+            alfaNew = sin(dz(choice))*SCPstep + alfaOld; fNew = cos(dz(choice))*SCPstep + fOld;
+            w = 2d0*pi*fNew        
+            write(file, '(4E15.6E3)') fNew, alfaNew
+            psi = atan( (fNew-fOld)/(alfaNew-alfaOld) ); fOld = fNew; alfaOld = alfaNew;
+            if (fNew>fmax) exit;
+        enddo 
+    end subroutine SCP1
     
 
 END MODULE ThreeLayerCase
