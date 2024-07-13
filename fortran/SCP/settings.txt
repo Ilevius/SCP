@@ -12,3 +12,12 @@ fmin = 1d-4, fmax = 1d0, dotsNum = 500,
 &simDcurves
 dzMin = 0d0, dzMax = 5d0, haminStep = 1d-3, haminEps = 1d-7,
 /
+&startPoints
+f_sp(1) = 2.0998d-3, alfa_sp(1) =  0.0420587d0,
+f_sp(2) = 0.0180982d0, alfa_sp(2) = 0.0219846d0,
+f_sp(3) = 0.156084d0, alfa_sp(3) = 0.0273854d0,
+f_sp(4) = 0.346065d0, alfa_sp(4) = 0.0457759d0,
+f_sp(5) = 0.526047d0, alfa_sp(5) = 0.0247028d0,
+f_sp(6) = 0.816d0, alfa_sp(6) = 0.0589583d0,
+f_sp(7) = 0.944d0, alfa_sp(7) = 0.0312388d0,
+/

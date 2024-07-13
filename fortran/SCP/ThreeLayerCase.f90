@@ -184,5 +184,22 @@ CONTAINS
         enddo 
     end subroutine SCP1
     
+    
+    subroutine plotAllcurves
+    implicit none
+    integer i
+    
+    do i = 1, 7
+        call SCP1(f_sp(i), alfa_sp(i), 0.5d-3, fmax, i)
+        !call SCP1(2.0998d-3, 0.0420587d0, 0.5d-3, fmax, 7) !1 
+        !call SCP1(0.0180982d0, 0.0219846d0, 0.5d-3, fmax, 7) !2 ok
+        !call SCP1(0.156084d0, 0.0273854d0, 0.5d-3, fmax, 7) !3 ok
+        !call SCP1(0.346065d0, 0.0457759d0, 0.5d-3, fmax, 7) !4 ok
+        !call SCP1(0.526047d0, 0.0247028d0, 0.5d-3, fmax, 8) !5 ok
+        !call SCP1(0.816d0, 0.0589583d0, 0.5d-3, fmax, 7) !6  ok
+        !call SCP1(0.944d0, 0.0312388d0, 0.5d-3, fmax, 7) !7  ok
+    enddo    
+    
+    end subroutine plotAllcurves
 
 END MODULE ThreeLayerCase

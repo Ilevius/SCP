@@ -7,6 +7,11 @@ data = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortr
 plot(data(:,1), data(:,2), 'o')
 
 
+hold on;
+data = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\SCP\2Curve.txt");
+plot(data(:,1), data(:,2), 'o')
+
+
 
 hold on;
 data = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\SCP\3Curve.txt");
