@@ -21,7 +21,7 @@
     call init_globals
     !call simpleDcurves
     !call bottom_conditions
-
+    call plotAllcurves
 
     end program SCP
 

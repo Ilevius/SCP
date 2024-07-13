@@ -21,6 +21,7 @@ CONTAINS
         read(13, waveguide) 
         read(13, study)
         read(13, simDcurves)
+        read(13, startPoints)
         close(13)
         
         open(unit=1,file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\data\curves\1.txt", FORM='FORMATTED')

@@ -7,7 +7,7 @@
         h(3) = 3d0, lambda(3) = 22d0, mu(3) = 22d0, rho(3) = 2.4d0,
 /
 &study 
-fmin = 1d-4, fmax = 1d0, dotsNum = 500,
+fmin = 1d-4, fmax = 1.5d0, dotsNum = 500,
 /
 &simDcurves
 dzMin = 0d0, dzMax = 5d0, haminStep = 1d-3, haminEps = 1d-7,
