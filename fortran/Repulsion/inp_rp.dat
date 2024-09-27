@@ -1,7 +1,7 @@
 &inp_keys
- Ms    = 1  ! number of layers  
- ibot  = 0  ! 0 -  half-space, 1 - free laminate, 2 - clamped laminate 
- Mode  = -1  ! < 0 - tests, 0 - RealPoles, 1 - ComplexPoles,
+ Ms    = 3  ! number of layers  
+ ibot  = 1  ! 0 -  half-space, 1 - free laminate, 2 - clamped laminate 
+ Mode  = 0  ! < 0 - tests, 0 - RealPoles, 1 - ComplexPoles,
             !   2 - ComplRes, 3 - Spectrum K(f,sl) 
             !   4 - Response	
             
@@ -10,14 +10,20 @@
 			! Mode = 1 - complex poles 
 			!   if Nn1 < 0 - search, if Nn1>0 - pole sorting; 
 
- iso   = 5  ! 0 - isotropic, else - anisotropic case 
+ iso   = 0  ! 0 - isotropic, else - anisotropic case 
  
 /
 
 &inp_iso    ! isotropic material constants
 
-   V_p(1) = 1.870   V_s(1) = 1.      rho(1) = 1.    hs(1) = 1.       ! dimensionless steel 
-   tet(1)=0.0001
+   V_p(1) = 6.322   V_s(1) = 3.148      rho(1) = 2.562   hs(1) = 2.       ! Aluminium 
+   tet(1)=0
+
+   V_p(2) = 1.073   V_s(2) = 0.438      rho(2) = 0.93    hs(2) = 0.05       ! Scotch 
+   tet(2)=0
+
+   V_p(3) = 5.244   V_s(3) = 3.028     rho(3) = 2.4    hs(3) = 3.       ! Glass 
+   tet(3)=0
 
 ! Bone-Exp  плексиглас
 !  V_p(1) = 2.7  V_s(1) = 1.226   rho(1) = 1.19  hs(1) = 3. !   плексиглас

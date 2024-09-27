@@ -130,6 +130,7 @@
 		<File RelativePath=".\FortranFiles\Cds_alf.f90"/>
 		<File RelativePath=".\FortranFiles\ComplPoles.f90"/>
 		<File RelativePath=".\FortranFiles\ComplRes.f90"/>
+		<File RelativePath=".\separateDcurves.f90"/>
 		<File RelativePath=".\FortranFiles\Green_K.f90"/>
 		<File RelativePath=".\FortranFiles\Green_T.f90"/>
 		<File RelativePath=".\FortranFiles\Init_RP.f90"/>

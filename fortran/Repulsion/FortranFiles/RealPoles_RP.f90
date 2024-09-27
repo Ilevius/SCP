@@ -60,6 +60,9 @@
       end do ! m
       
 ! cycle f
+      
+      call plotAllcurves
+      !call simpleDcurves
   
       maxN=0; jn=0         
       do f=f1,f2*1.00001,hf

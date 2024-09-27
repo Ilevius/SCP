@@ -9,6 +9,7 @@
 
 	call Init_RP
 
+    
 	if(Mode ==  0) call RealPoles_RP
 !	if(Mode ==  1) call ComplPoles
 !	if(Mode ==  2) call ComplRes

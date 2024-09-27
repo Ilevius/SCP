@@ -1,4 +1,4 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Sun Nov 13 23:09:23 2022
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Sep 26 11:40:15 2024
         ! This source file is for reference only and may not completely
         ! represent the generated interface used by the compiler.
         MODULE TEST_PRINT_K__genmod

@@ -15,9 +15,6 @@ CONTAINS
     complex*16 E(4,4), P(4,4), T(2,4)
         makeA = 0d0
         
-        
-        
-        
                                                     ! SO - top surface load                           for U1
         E = makeE(sigma(1,:), z(1), z(2), z(1))
         P = makeP(alfa, sigma(1,:))
@@ -25,33 +22,25 @@ CONTAINS
         temp_mat = matmul(P, E); 
         S0 = matmul(T, temp_mat)
 
-                                                    ! C1_bot - first interface load and displacement  for U1
+                                                    ! C1_bot - bottom interface load and displacement  for U1
         E = makeE(sigma(1,:), z(1), z(2), z(2))
         temp_mat = matmul(P, E); C1_bot(1,:) = temp_mat(1,:); C1_bot(2,:) = temp_mat(3,:);
         C1_bot(3:4, :) = matmul(T, temp_mat);
         
-        
-        
-        
-        
-                                                    ! C2_top - first interface load and displacement  for U2
+                                                    ! C2_top - top interface load and displacement  for U2
         E = makeE(sigma(2,:), z(2), z(3), z(2))
         P = makeP(alfa, sigma(2,:))
         T = makeT(alfa, lambda(2), mu(2))
         temp_mat = matmul(P, E); C2_top(1,:) = temp_mat(1,:); C2_top(2,:) = temp_mat(3,:);
         C2_top(3:4, :) = matmul(T, temp_mat);
         
-                                                    ! C2_bot - second interface load and displacement for U2
+                                                    ! C2_bot - bottom interface load and displacement for U2
         E = makeE(sigma(2,:), z(2), z(3), z(3))
         temp_mat = matmul(P, E); C2_bot(1,:) = temp_mat(1,:); C2_bot(2,:) = temp_mat(3,:);
         C2_bot(3:4, :) = matmul(T, temp_mat);
         
         
-        
-        
-        
-        
-                                                    ! C3_top - second interface load and displacement for U3
+                                                    ! C3_top - top interface load and displacement for U3
         E = makeE(sigma(3,:), z(3), z(4), z(3))
         P = makeP(alfa, sigma(3,:))
         T = makeT(alfa, lambda(3), mu(3))
@@ -131,13 +120,13 @@ CONTAINS
     
     SUBROUTINE simpleDcurves
     IMPLICIT NONE
-    real*8 dz(10)
+    real*8 dz(20)
     integer i, j, Ndz
         open(1, file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\data\simpleDcurves.txt", FORM='FORMATTED');
         
         do i = 1, dotsNum
             f = fmin + fstep*(i-1); w = f*2d0*pi;
-            call Hamin(haminDelta, dzMin, dzMax, haminStep, haminEps, 10, dz, Ndz)
+            call Hamin(haminDelta, dzMin, dzMax, haminStep, haminEps, 20, dz, Ndz)
             do j = 1, Ndz
                 write(1, '(5E15.6E3)') f, dz(j), dz(j)/f, f/dz(j)
             enddo    
@@ -149,10 +138,10 @@ CONTAINS
     subroutine SCP1(f0, alfa0, step, fmax, file)
     implicit none
     integer  Ndz, choice, iterno, j, file
-    real*8 f0, alfa0, fNew, alfaNew, step, fmax, dz(10), psi
+    real*8 f0, alfa0, fNew, alfaNew, step, fmax, dz(20), psi
     !    !                                                                    первые шаги, подготовка к автоматике
         SCPstep = step; fOld = f0; alfaOld = alfa0;
-        call Hamin(arcHaminDelta, 0d0, pi, 1d-3, 1d-7, 10, dz, Ndz)
+        call Hamin(arcHaminDelta, 0d0, pi, 1d-3, 1d-7, 20, dz, Ndz)
         alfaNew = sin(dz(1))*SCPstep + alfaOld; fNew = cos(dz(1))*SCPstep + fOld;
         psi = atan( (fNew-fOld)/(alfaNew-alfaOld) );      
         w = 2d0*pi*fNew       
@@ -189,7 +178,7 @@ CONTAINS
     implicit none
     integer i
     print*, 'Separate disp curves plotting has been started!'
-    do i = 1, 7
+    do i = 1, 13
         print*, 'Curve ', i, ' plotting has been started!'
         call SCP1(f_sp(i), alfa_sp(i), 5d-3, fmax, i)
     enddo    

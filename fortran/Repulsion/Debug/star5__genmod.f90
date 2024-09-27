@@ -1,4 +1,4 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Thu Sep 30 18:11:06 2021
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Sep 26 11:40:04 2024
         ! This source file is for reference only and may not completely
         ! represent the generated interface used by the compiler.
         MODULE STAR5__genmod
