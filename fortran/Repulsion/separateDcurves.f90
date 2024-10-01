@@ -1,5 +1,7 @@
     MODULE SDC_globals
+    integer resFileNo, freqsNum
     real*8 fOld, alfaOld, SCPstep
+    real*8, allocatable:: freqs(:), dzetas(:), resK11(:)
     END MODULE
     
     SUBROUTINE simpleDcurves
@@ -10,7 +12,7 @@
     real*8 fmin, fstep, fmax, dzMin, dzMax, haminStep, haminEps, RDabs, RDabs_alf, vs, kap2
     external RDabs,RDabs_alf
         dotsNum = 400
-        fmin = 1d-3; fmax = 2d0; 
+        fmin = 1d-3; fmax = 2.5d0; 
         dzMin = 1d-4; dzMax = 3.5d0; haminStep =1d-2; haminEps = 1d-6; dz = 0d0;
         vs = sqrt(C_6(6,6,1)/rho(1))
         open(1, file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\simpleDcurves.txt", FORM='FORMATTED');
@@ -101,7 +103,7 @@
         f_sp(3) = 0.156084d0; alfa_sp(3) = 0.0273854d0;
         f_sp(4) = 0.346065d0; alfa_sp(4) = 0.0457759d0;
         f_sp(5) = 0.526047d0; alfa_sp(5) = 0.0247028d0;
-        f_sp(6) = 0.816d0; alfa_sp(6) = 0.0589583d0;
+        f_sp(6) = 0.810595d0; alfa_sp(6) = 0.098386318441d0;
         f_sp(7) = 0.944d0; alfa_sp(7) = 0.0312388d0;
         f_sp(8) = 1.02303d0; alfa_sp(8) = 0.05052d0;
         f_sp(9) = 1.516d0; alfa_sp(9) = 0.128634d0;
@@ -124,13 +126,41 @@
         open(unit=311,file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\11.txt", FORM='FORMATTED')
         open(unit=312,file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\12.txt", FORM='FORMATTED')
         open(unit=313,file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\13.txt", FORM='FORMATTED')
+        
 
         
         fmax = 2.5d0
     
-        do i = 6, 6
+        do i = 10, 10
             print*, 'Curve ', i, ' plotting has been started!'
-            call SCP1(f_sp(i), alfa_sp(i), 0.6d-2, fmax, i+300)
+            call SCP1(f_sp(i), alfa_sp(i), 0.5d-2, fmax, i+300)
         enddo    
     
     end subroutine plotAllcurves
+    
+    
+    subroutine setResEnv
+    use SDC_globals;
+    implicit none
+    integer i
+        open(unit=301,file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\13.txt", FORM='FORMATTED')
+        open(unit=resFileNo,file="C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\residues\13.txt", FORM='FORMATTED')
+        call countFileLines(301, freqsNum); rewind(301);
+        allocate(freqs(freqsNum), dzetas(freqsNum), resK11(freqsNum))
+        do i = 1, freqsNum
+            read(301, *) freqs(i), dzetas(i)   
+        enddo    
+        close(301);
+    end        
+    
+    
+    subroutine countFileLines(fileNo, nlines)
+    implicit none
+    integer fileNo, nlines, io
+        nlines = 0
+        DO
+          READ(fileNo,*,iostat=io)
+          IF (io/=0) EXIT
+          nlines = nlines + 1
+        END DO
+    end

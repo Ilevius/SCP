@@ -7,24 +7,23 @@ data3 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fort
 data4 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\4.txt");
 data5 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\5.txt");
 data6 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\6.txt");
-% data7 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\7.txt");
-% data8 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\8.txt");
-% data9 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\9.txt");
-% data10 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\10.txt");
-% data11 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\11.txt");
-% data12 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\12.txt");
-% data13 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\13.txt");
+data7 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\7.txt");
+data8 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\8.txt");
+data9 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\9.txt");
+data10 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\10.txt");
+data11 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\11.txt");
+data12 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\12.txt");
+data13 = load("C:\Users\tiama\OneDrive\Рабочий стол\IMMI\Super Curve Program\fortran\Repulsion\DataFigs\separateDcurves\A2Sc0,05G3v1\13.txt");
 
 
 
-
-
-
-plot(data(:,1), data(:,2).*data(:,1)*2*pi, '.');
-hold on;
+% plot(data(:,1), data(:,2).*data(:,1)*2*pi, '.');
+% hold on;
 marker = '--';
 plot(data1(:,1), data1(:,2), marker, data2(:,1), data2(:,2), marker, data3(:,1), data3(:,2), marker, ...
     data4(:,1), data4(:,2), marker, data5(:,1), data5(:,2), marker, data6(:,1), data6(:,2), marker, ...
-    data1(:,1), data1(:,2), marker, data1(:,1), data1(:,2), marker, data1(:,1), data1(:,2), marker, ... 
-    data1(:,1), data1(:,2), marker, data1(:,1), data1(:,2), marker, data1(:,1), data1(:,2), marker, ...
-    data1(:,1), data1(:,2), marker);
+    data7(:,1), data7(:,2), marker, data8(:,1), data8(:,2), marker, data9(:,1), data9(:,2), marker, ... 
+    data10(:,1), data10(:,2), marker, data11(:,1), data11(:,2), marker, data12(:,1), data12(:,2), marker, ...
+    data13(:,1), data13(:,2), marker);
+
+xlim([0 2.5]);

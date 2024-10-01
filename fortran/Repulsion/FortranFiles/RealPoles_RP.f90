@@ -1,7 +1,7 @@
 ! Real poles for Repulsion (over slowness)
 
     subroutine RealPoles_RP
-	use Mult_Glob; implicit none
+	use Mult_Glob; use SDC_globals; implicit none
 
 	integer Ndz,Ndzm,Ndj,maxN,j,Nj,jn,n,m,nt,nf,Nft,&
 	        jt,it,Nbr,i,jni,ift,key_real,iQ,MMs 
@@ -61,7 +61,7 @@
       
 ! cycle f
       
-      call plotAllcurves
+      !call plotAllcurves
       !call simpleDcurves
   
       maxN=0; jn=0         
@@ -257,7 +257,7 @@
 
 ! =============================      
 
-! Residues
+                                                                ! Residues
 
 ! file 25 'temp.dat' for addimg residues into 'fslown_t.dat'
  
@@ -275,16 +275,48 @@
     read (14,*,err=35,end=35)n
 
     do while(n > 0)
-      write(15,36)n
-36    format(i12,'   &')
+          write(15,36)n
+    36    format(i12,'   &')
          
-      read (14,*,err=35,end=35)f,st; w = 2d0*pi*f;      
-      do while (f > 0)
-         
-! residues K11, K31, K13, K33
+          read (14,*,err=35,end=35)f,st; w = 2d0*pi*f;      
+      
+          do while (f > 0)
+                ! residues K11, K31, K13, K33
 
-        hres = 1d3*eps; dzt = w*st 
-!       hres = 100d0*eps; dzt = w*st 
+                hres = 1d3*eps; dzt = w*st 
+                if((dzt-hres) < 0d0) hres = dzt-eps
+   
+                alf = dzt + hres	
+                call MultiK_An(alf,gm,0d0); 
+
+                cr11 = Kaz(1,1); cr31 = Kaz(3,1)  
+                cr13 = Kaz(1,3); cr33 = Kaz(3,3)  
+           
+                alf = dzt - hres	
+                call MultiK_An(alf,gm,0d0); 
+        
+                cr11 = hres*(cr11-Kaz(1,1))/2d0; 
+                cr31 = hres*(cr31-Kaz(3,1))/2d0  
+                cr13 = hres*(cr13-Kaz(1,3))/2d0 
+                cr33 = hres*(cr33-Kaz(3,3))/2d0  
+           
+                write(15,3)f,st,cr11,cr31,cr13,cr33
+                    
+                read (14,*,err=35,end=35)f,st; w = 2d0*pi*f;
+          end do ! while (f > 0)
+      
+          write(15,*)' -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 '
+
+          read (14,*,err=35,end=35)n         
+    end do !while (n > 0)
+    
+    
+    
+    call setResEnv
+    eps = 1d-6;
+    do i = 1, freqsNum
+        w = 2d0*pi*freqs(i)
+        hres = 1d3*eps; dzt = dzetas(i) 
         if((dzt-hres) < 0d0) hres = dzt-eps
    
         alf = dzt + hres	
@@ -300,17 +332,10 @@
         cr31 = hres*(cr31-Kaz(3,1))/2d0  
         cr13 = hres*(cr13-Kaz(1,3))/2d0 
         cr33 = hres*(cr33-Kaz(3,3))/2d0  
-           
-        write(15,3)f,st,cr11,cr31,cr13,cr33
-                    
-        read (14,*,err=35,end=35)f,st; w = 2d0*pi*f;
         
-      end do ! while (f > 0)
-      write(15,*)' -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 '
-
-      read (14,*,err=35,end=35)n         
-              
-    end do !while (n > 0)
+        write(resFileNo, '(7E15.6E3)') freqs(i), dzetas(i), abs(cr11), abs(cr13), abs(cr31), abs(cr33)
+    enddo
+    
     write(15,*)' -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 '  
 
 ! temp.dat --> fslown_t

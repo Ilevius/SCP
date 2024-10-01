@@ -1,4 +1,4 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Fri Sep 27 10:48:18 2024
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Oct 01 15:33:57 2024
         ! This source file is for reference only and may not completely
         ! represent the generated interface used by the compiler.
         MODULE ARCRDABS__genmod
