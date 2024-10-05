@@ -36,6 +36,7 @@
 		<File RelativePath=".\out_rp.dat"/>
 		<File RelativePath=".\DataFigs\response.dat"/>
 		<File RelativePath=".\DataFigs\rpoles.dat"/>
+		<File RelativePath=".\SeparateDcurves settings.txt"/>
 		<File RelativePath=".\DataFigs\temp.dat"/></Filter>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 		<Filter Name="MultiK_An">
@@ -130,7 +131,6 @@
 		<File RelativePath=".\FortranFiles\Cds_alf.f90"/>
 		<File RelativePath=".\FortranFiles\ComplPoles.f90"/>
 		<File RelativePath=".\FortranFiles\ComplRes.f90"/>
-		<File RelativePath=".\separateDcurves.f90"/>
 		<File RelativePath=".\FortranFiles\Green_K.f90"/>
 		<File RelativePath=".\FortranFiles\Green_T.f90"/>
 		<File RelativePath=".\FortranFiles\Init_RP.f90"/>
@@ -145,6 +145,7 @@
 		<File RelativePath=".\FortranFiles\RealPoles_RP.f90"/>
 		<File RelativePath=".\FortranFiles\Repulsion.f90"/>
 		<File RelativePath=".\FortranFiles\Response.f90"/>
+		<File RelativePath=".\separateDcurves.f90"/>
 		<File RelativePath=".\FortranFiles\SortPoles.f90"/>
 		<File RelativePath=".\FortranFiles\Spectrum_K_f_sl.f90"/>
 		<File RelativePath=".\FortranFiles\test_print_K.f90"/></Filter></Files>

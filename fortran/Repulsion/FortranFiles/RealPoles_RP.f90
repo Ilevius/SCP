@@ -1,7 +1,7 @@
 ! Real poles for Repulsion (over slowness)
 
     subroutine RealPoles_RP
-	use Mult_Glob; use SDC_globals; implicit none
+	use Mult_Glob;  implicit none
 
 	integer Ndz,Ndzm,Ndj,maxN,j,Nj,jn,n,m,nt,nf,Nft,&
 	        jt,it,Nbr,i,jni,ift,key_real,iQ,MMs 
@@ -60,9 +60,6 @@
       end do ! m
       
 ! cycle f
-      
-      !call plotAllcurves
-      !call simpleDcurves
   
       maxN=0; jn=0         
       do f=f1,f2*1.00001,hf
@@ -312,29 +309,29 @@
     
     
     
-    call setResEnv
-    eps = 1d-6;
-    do i = 1, freqsNum
-        w = 2d0*pi*freqs(i)
-        hres = 1d3*eps; dzt = dzetas(i) 
-        if((dzt-hres) < 0d0) hres = dzt-eps
-   
-        alf = dzt + hres	
-        call MultiK_An(alf,gm,0d0); 
-
-        cr11 = Kaz(1,1); cr31 = Kaz(3,1)  
-        cr13 = Kaz(1,3); cr33 = Kaz(3,3)  
-           
-        alf = dzt - hres	
-        call MultiK_An(alf,gm,0d0); 
-        
-        cr11 = hres*(cr11-Kaz(1,1))/2d0; 
-        cr31 = hres*(cr31-Kaz(3,1))/2d0  
-        cr13 = hres*(cr13-Kaz(1,3))/2d0 
-        cr33 = hres*(cr33-Kaz(3,3))/2d0  
-        
-        write(resFileNo, '(7E15.6E3)') freqs(i), dzetas(i), abs(cr11), abs(cr13), abs(cr31), abs(cr33)
-    enddo
+    !call setResEnv
+    !eps = 1d-6;
+    !do i = 1, freqsNum
+    !    w = 2d0*pi*freqs(i)
+    !    hres = 1d3*eps; dzt = dzetas(i) 
+    !    if((dzt-hres) < 0d0) hres = dzt-eps
+    !
+    !    alf = dzt + hres	
+    !    call MultiK_An(alf,gm,0d0); 
+    !
+    !    cr11 = Kaz(1,1); cr31 = Kaz(3,1)  
+    !    cr13 = Kaz(1,3); cr33 = Kaz(3,3)  
+    !       
+    !    alf = dzt - hres	
+    !    call MultiK_An(alf,gm,0d0); 
+    !    
+    !    cr11 = hres*(cr11-Kaz(1,1))/2d0; 
+    !    cr31 = hres*(cr31-Kaz(3,1))/2d0  
+    !    cr13 = hres*(cr13-Kaz(1,3))/2d0 
+    !    cr33 = hres*(cr33-Kaz(3,3))/2d0  
+    !    
+    !    write(resFileNo, '(7E15.6E3)') freqs(i), dzetas(i), abs(cr11), abs(cr13), abs(cr31), abs(cr33)
+    !enddo
     
     write(15,*)' -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 '  
 

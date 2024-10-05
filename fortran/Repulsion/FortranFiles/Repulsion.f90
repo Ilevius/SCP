@@ -3,14 +3,17 @@
 !    for investigating repulsion and ZGV-resonance phenomena
  
     program Repulsion
-    use Mult_Glob; implicit none
+    use Mult_Glob; 
+    use SDC_globals;
+    implicit none
+    
   
 ! Initiation
 
 	call Init_RP
-
     
-	if(Mode ==  0) call RealPoles_RP
+    
+	if(Mode ==  0) call RealPoles_RP; 
 !	if(Mode ==  1) call ComplPoles
 !	if(Mode ==  2) call ComplRes
     if(Mode ==  3) call Spectrum_Kf_sl
@@ -19,5 +22,9 @@
 ! tests
 	if(Mode ==-1) call test_print_K
  !   if(Mode == -2) call TestSpline
+    
+    
+    call plotAllcurves
+      
              
 	end 

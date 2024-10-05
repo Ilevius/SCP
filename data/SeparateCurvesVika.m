@@ -54,6 +54,7 @@ plot( data1(:,1), data1(:,2)./data1(:,1)*yFac, mrk, data2(:,1), data2(:,2)./data
     ,data12(:,1), data12(:,2)./data12(:,1)*yFac, mrk, data13(:,1), data13(:,2)./data13(:,1)*yFac, mrk, 'LineWidth',2)
 xlim([0 2.5]); ylim([0 0.5]);
 
+
 grVelPlot = figure();
 mrk = '-'; yFac = 2*pi;
 set (grVelPlot, 'Position', [200 200 widpi higpi]);
