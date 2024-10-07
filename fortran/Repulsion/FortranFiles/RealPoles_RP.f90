@@ -309,29 +309,7 @@
     
     
     
-    !call setResEnv
-    !eps = 1d-6;
-    !do i = 1, freqsNum
-    !    w = 2d0*pi*freqs(i)
-    !    hres = 1d3*eps; dzt = dzetas(i) 
-    !    if((dzt-hres) < 0d0) hres = dzt-eps
-    !
-    !    alf = dzt + hres	
-    !    call MultiK_An(alf,gm,0d0); 
-    !
-    !    cr11 = Kaz(1,1); cr31 = Kaz(3,1)  
-    !    cr13 = Kaz(1,3); cr33 = Kaz(3,3)  
-    !       
-    !    alf = dzt - hres	
-    !    call MultiK_An(alf,gm,0d0); 
-    !    
-    !    cr11 = hres*(cr11-Kaz(1,1))/2d0; 
-    !    cr31 = hres*(cr31-Kaz(3,1))/2d0  
-    !    cr13 = hres*(cr13-Kaz(1,3))/2d0 
-    !    cr33 = hres*(cr33-Kaz(3,3))/2d0  
-    !    
-    !    write(resFileNo, '(7E15.6E3)') freqs(i), dzetas(i), abs(cr11), abs(cr13), abs(cr31), abs(cr33)
-    !enddo
+
     
     write(15,*)' -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 '  
 

@@ -1,4 +1,4 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Fri Oct 04 15:30:49 2024
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Oct 07 11:03:04 2024
         ! This source file is for reference only and may not completely
         ! represent the generated interface used by the compiler.
         MODULE SCP1__genmod

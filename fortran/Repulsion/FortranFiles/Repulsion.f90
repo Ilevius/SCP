@@ -24,7 +24,8 @@
  !   if(Mode == -2) call TestSpline
     
     
-    call plotAllcurves
+    !call plotAllcurves
+    !call residuesFromDCurves
       
              
 	end 

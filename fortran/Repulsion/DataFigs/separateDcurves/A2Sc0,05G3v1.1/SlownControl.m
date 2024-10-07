@@ -20,4 +20,4 @@ xlim([0 1.5]); ylim([0 0.5]);
 grid on;
 
 hold on;
-plot(simpleDC(:,1), simpleDC(:,2));
+plot(simpleDC(:,1), simpleDC(:,2)./simpleDC(:,1)/2/pi, '.');
